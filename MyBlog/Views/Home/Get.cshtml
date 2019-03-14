@@ -1,0 +1,10 @@
+﻿@using MyBlog.Models
+@model PostViewModel
+@{
+    ViewBag.Title = "文章内容";
+}
+
+<h2>@Model.Title</h2>
+<p>@Model.Content</p>
+<p>作者： @Model.Author ,发布时间： @Model.CreateDate</p>
+

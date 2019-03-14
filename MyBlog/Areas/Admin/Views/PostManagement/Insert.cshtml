@@ -1,0 +1,19 @@
+﻿@using MyBlog.Models;
+@model PostViewModel
+
+@{
+    ViewBag.Title = "Insert";
+}
+
+<h2>添加文章</h2>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form-form" }))
+{
+    <label>标题</label>
+    <h2>@Html.TextBoxFor(m=>m.Title)</h2>
+    <label>内容</label>
+    <p>@Html.TextAreaFor(m=>m.Content)</p>
+    <label>作者</label>
+    <p>@Html.TextBoxFor(m=>m.Author)</p>
+    <button type="submit">提交</button>
+}
+

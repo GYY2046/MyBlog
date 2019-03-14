@@ -1,0 +1,16 @@
+﻿@using MyBlog.Areas.Admin.Models;
+@model PostMaintainViewModel
+@{
+    ViewBag.Title = "更新文章";
+}
+
+<h2>更新文章</h2>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "post-form" }))
+{
+    <label>标题</label>
+    <h2>@Html.TextBoxFor(m=>m.Title)</h2>
+    <label>内容</label>
+    <p>@Html.TextAreaFor(m=>m.Content)</p>
+    <button type="submit">提交</button>
+}
+
