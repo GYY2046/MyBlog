@@ -60,7 +60,7 @@ namespace MyBlog.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Insert(PostViewModel model)
         {
-            model.Id = 11;
+            //model.Id = 11;
             model.CreateDate = DateTime.Now;
             model.ModifyDate = DateTime.Now;
             var post = new Post{
