@@ -1,52 +1,48 @@
-## MVC启动顺序
+## MVC 事件
 
-　　1. BeginRequest 事件.
+[参考地址](https://www.cnblogs.com/darrenji/p/3795661.html)
 
-　　2. AuthenticateRequest 事件.
+HttpRuntime维护着一个HttpApplication池，当有HTTP请求过来，从池中选取可用的HttpApplication处理请求
 
-　　3. PostAuthenticateRequest 事件.
 
-　　4. AuthorizeRequest 事件.
+1、BeginRequest：HTTP管道开始处理请求时，会触发BeginRequest事件
 
-　　5. PostAuthorizeRequest 事件.
+2、AuthenticateRequest：安全模块对请求进行身份验证时触发该事件
 
-　　6. ResolveRequestCache 事件.
+3、PostAuthenticateRequest：安全模块对请求进行身份验证后触发该事件
 
-　　7. PostResolveRequestCache 事件.
+4、AuthorizeRequest：安全模块对请求进程授权时触发该事件
 
-　　8. MapRequestHandler 事件. 根据请求文件的拓展名来选择一个适合的处理器，这个处理器可以是非托管代码编写的模块如StaticFileModule或者是托管代码的模块如PageHandlerFactory（它用来处理.aspx文件）. 
+5、PostAuthorizeRequest：安全模块对请求进程授权后触发该事件
 
-　　9. PostMapRequestHandler 事件.
+6、ResolveRequestCache：缓存模块利用缓存直接对请求进程响应时触发该事件
 
-　　10. AcquireRequestState 事件.
+7、PostResolveRequestCache：缓存模块利用缓存直接对请求进程响应后触发该事件
 
-　　11. PostAcquireRequestState 事件.
+8、PostMapRequestHandler：对于访问不同的资源类型，ASP.NET具有不同的HttpHandler对其进程处理。对于每个请求，ASP.NET会根据扩展名选择匹配相应的HttpHandler类型，成功匹配后触发该事件
 
-　　12. PreRequestHandlerExecute 事件.
+9、AcquireRequestState：状态管理模块获取基于当前请求相应的状态(比如SessionState)时触发该事件
 
-　　13. 调用处理器的ProcessRequest方法 (或者是异步版本的).
+10、PostAcquireRequestState：状态管理模块获取基于当前请求相应的状态(比如SessionState)后触发该事件
 
-　　14. PostRequestHandlerExecute 事件.
+11、PreRequestHandlerExecute：在实行HttpHandler前触发该事件
 
-　　15. ReleaseRequestState 事件.
+12、PostRequestHandlerExecute：在实行HttpHandler后触发该事件
 
-　　16. PostReleaseRequestState 事件.
+13、ReleaseRequestState：状态管理模块释放基于当前请求相应的状态时触发该事件
 
-　　17. 如果定义了过滤器则执行过滤器对相应信息进行过滤.
+14、PostReleaseRequestState：状态管理模块释放基于当前请求相应的状态后触发该事件
 
-　　18. UpdateRequestCache 事件.
+15、UpdateRequestCache：缓存模块将HttpHandler处理请求得到的相应保存到输出缓存时触发该事件
 
-　　19. PostUpdateRequestCache 事件.
+16、PostUpdateRequestCache：缓存模块将HttpHandler处理请求得到的相应保存到输出缓存后触发该事件
 
-　　20. LogRequest 事件.
+17、LogRequest：为当前请求进程日志记录时触发该事件
 
-　　21. PostLogRequest 事件.
+18、PostLogReques：为当前请求进程日志记录后触发该事件
 
-　　22. EndRequest 事件.
+19、EndRequest：整个请求处理完成后触发该事件
 
-　　23. PreSendRequestHeaders 事件.
-
-　　24. PreSendRequestContent 事件.
 
 ---
 在ASP.NET程序中可以通过Global.asax文件来注册这些事件，一般创建ASP.NET应用程序项目时将会自动创建一个Global.asax文件，比如MVC应用中的Global.asax：
