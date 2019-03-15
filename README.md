@@ -15,7 +15,7 @@ ASP.NET  MVC5  系列学习
 
 流程可以看图如下：[源地址](https://www.jianshu.com/p/848fda7f79e0)
 
-![MVC流程图](./Doc/MVC/img/MVC流程.)
+![MVC流程图](./Doc/MVC/img/MVC流程.PNG)
 
 
 从上图可以看出ASP.NET MVC的处理主要有以下几个流程
