@@ -36,11 +36,13 @@ ASP.NET  MVC5  系列学习
 
 ## 路由处理
 
-1. MVC第一次启动时，将MVC程序的路由信息加入到路由表中 [路由注册](./Doc/MVC/路由注册.md)
+1. MVC第一次启动时，将MVC程序的路由信息加入到全局路由表中 [路由注册](./Doc/MVC/路由注册.md)
 
-2. Http请求到达路由模块依次触发MVC事件进行处理 [MVC事件](./Doc/MVC/MVC启动.md)
+2. Http请求到达IIS，IIS使用UrlRoutingModeul进行路由处理
 
-3. 
+3. 路由模块依次触发MVC事件进行处理 [MVC事件](./Doc/MVC/MVC启动.md)
+
+4. 路由解析 [路由解析](./Doc/MVC/路由解析.md)
 
 
 
