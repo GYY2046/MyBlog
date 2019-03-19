@@ -44,14 +44,8 @@ ASP.NET  MVC5  系列学习
 
 4. 路由解析 [路由解析](./Doc/MVC/路由解析.md)
 
+5. 初始化并创建相应的 Controller
 
 
-***
-
-[MVC处理请求的执行顺序](./Doc/MVC/MVC启动.md)
-
-## MVC路由注册
-[路由注册](./Doc/MVC/路由注册.md)
-
-## 未完待续...
+## Controller 初始化和创建
 
