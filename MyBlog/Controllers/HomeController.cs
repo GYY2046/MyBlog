@@ -10,6 +10,7 @@ namespace MyBlog.Controllers
     public class HomeController : Controller
     {
         private BlogBussinessLogic.BlogManager _manager = new BlogBussinessLogic.BlogManager();
+        [Authorize]
         public ActionResult Index()
         {
             var posts = _manager.GetAllPosts().Select(p => new PostViewModel

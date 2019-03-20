@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyBlog.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,10 @@ namespace MyBlog
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            var container = MyBlogContainer.GetContainer();
+            //DependencyResolver.SetResolver(new MyBlogDependencyResolver(container));
+            ControllerBuilder.Current.SetControllerFactory(new MyBlogControllerFactory(container));
         }
     }
 }

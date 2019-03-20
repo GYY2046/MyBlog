@@ -1,0 +1,30 @@
+﻿@using MyBlog.Models;
+@model LoginViewModel
+@{
+    ViewBag.Title = "登录";
+}
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "fomr-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>登录</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger1" })
+    <div class="form-group">
+        <label class="col-md-2 control-label">用户名：</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">密码：</label>
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="注册" />
+        </div>
+    </div>
+    <hr />
+}
